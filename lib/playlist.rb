@@ -13,7 +13,7 @@ class Playlist
   end
 
   def play
-    number_rolled = Die::roll
+    number_rolled = Die.new
     @movies.each do |movie|
       case number_rolled
       when 1..2
