@@ -1,5 +1,5 @@
 require_relative 'movie'
-require_relative 'die'
+require_relative 'reviewer'
 
 class Playlist
 
@@ -13,14 +13,8 @@ class Playlist
   end
 
   def play
-    number_rolled = Die.new
     @movies.each do |movie|
-      case number_rolled
-      when 1..2
-        movie.thumbs_down
-      when 5..6
-        movie.thumbs_up
-      end
+      Reviewer.review movie
       puts movie
     end
     puts @movies
