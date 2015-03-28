@@ -18,7 +18,7 @@ describe Playlist do
     it "gives the movie a thumbs up if a high number is rolled" do
       allow_any_instance_of(Die).to receive(:roll).and_return(5)
 
-      @playlist.play
+      @playlist.play(1)
 
       expect(@movie.rank).to eq(@initial_rank + 1)
     end
@@ -26,7 +26,7 @@ describe Playlist do
     it "does not change ranking if a medium number is rolled" do
       allow_any_instance_of(Die).to receive(:roll).and_return(3)
 
-      @playlist.play
+      @playlist.play(1)
 
       expect(@movie.rank).to eq(@initial_rank)
     end
@@ -34,7 +34,7 @@ describe Playlist do
     it "gives the movie a thumbs down if a low number is rolled" do
       allow_any_instance_of(Die).to receive(:roll).and_return(1)
 
-      @playlist.play
+      @playlist.play(1)
 
       expect(@movie.rank).to eq(@initial_rank - 1)
     end

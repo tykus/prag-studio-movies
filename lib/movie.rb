@@ -23,6 +23,10 @@ class Movie
     hit? ? "Hit" : "Flop"
   end
 
+  def <=>(other)
+    other.rank <=> @rank
+  end
+
   def to_s
     "#{@title} has a rank of #{@rank}"
   end
