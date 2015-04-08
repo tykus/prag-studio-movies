@@ -11,7 +11,6 @@ describe Movie do
     expect(@movie.title).to eq("Goonies")
   end
 
-
   it 'has an initial rank' do
     expect(@movie.rank).to eq(10)
   end
