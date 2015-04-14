@@ -18,6 +18,12 @@ class Movie
     @snack_carbs.values.reduce(0,:+)
   end
 
+  def each_snack
+    @snack_carbs.each do |name, carbs|
+      yield Snack.new(name, carbs)
+    end
+  end
+
   def thumbs_up
     @rank += 1
   end
