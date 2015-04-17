@@ -8,6 +8,11 @@ class Movie
     @snack_carbs = Hash.new(0)
   end
 
+  def self.from_csv(line)
+    title,rank = line.split(",")
+    Movie.new(title,Integer(rank))
+  end
+
   def ate_snack(snack)
     @snack_carbs[snack.name] += snack.carbs
     puts "#{@title} led to #{snack.carbs} #{snack.name} carbs being consumed."
@@ -46,6 +51,10 @@ class Movie
 
   def to_s
     "#{@title} has a rank of #{@rank}"
+  end
+
+  def to_csv
+    "#{@title},#{@rank}"
   end
 end
 
