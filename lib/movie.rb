@@ -1,6 +1,10 @@
+require_relative 'rankable'
+
 class Movie
 
-  attr_reader :title, :rank
+  include Rankable
+
+  attr_accessor :title, :rank
 
 	def initialize(title, rank=0)
     @title = title.capitalize
@@ -27,26 +31,6 @@ class Movie
     @snack_carbs.each do |name, carbs|
       yield Snack.new(name, carbs)
     end
-  end
-
-  def thumbs_up
-    @rank += 1
-  end
-
-  def thumbs_down
-    @rank -= 1
-  end
-
-  def hit?
-    @rank >= 10
-  end
-
-  def status
-    hit? ? "Hit" : "Flop"
-  end
-
-  def <=>(other)
-    other.rank <=> @rank
   end
 
   def to_s
