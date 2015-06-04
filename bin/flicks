@@ -1,13 +1,14 @@
 #! /usr/bin/env ruby
 
-require_relative '../lib/playlist'
+require_relative '../lib/flicks/playlist'
 
 # movie1 = Movie.new("goonies", 10)
 # movie2 = Movie.new("ghostbusters", 9)
 # movie3 = Movie.new("goldfinger")
 
-playlist = Playlist.new("Kermit")
-playlist.load(ARGV.shift || "movies.csv")
+playlist = Flicks::Playlist.new("Kermit")
+default_movies_file = File.join(File.dirname(__FILE__), 'movies.csv')
+playlist.load(ARGV.shift || default_movies_file)
 
 loop do
   puts "\nHow many viewings? ('quit' to exit)"
